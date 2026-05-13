@@ -319,12 +319,12 @@
 
 #mobile-schedule-list .schedule-table th:nth-child(1),
 #mobile-schedule-list .schedule-table td:nth-child(1) {
-  width: 58%;
+  width: 42%;
 }
 
 #mobile-schedule-list .schedule-table th:nth-child(2),
 #mobile-schedule-list .schedule-table td:nth-child(2) {
-  width: 42%;
+  width: 58%;
 }
 
 #mobile-schedule-list .schedule-table th:nth-child(3),
@@ -375,12 +375,12 @@
 
 .schedule-table thead th:nth-child(1),
 .schedule-row td:nth-child(1) {
-  width: 58%;
+  width: 42%;
 }
 
 .schedule-table thead th:nth-child(2),
 .schedule-row td:nth-child(2) {
-  width: 42%;
+  width: 58%;
 }
 
 .schedule-table thead th:nth-child(3),
