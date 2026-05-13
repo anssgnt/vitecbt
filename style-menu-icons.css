@@ -242,6 +242,8 @@
 }
 
 .schedule-table-wrap {
+  width: 100%;
+  display: block;
   overflow-x: auto;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
@@ -251,6 +253,8 @@
 
 .schedule-table {
   width: 100%;
+  min-width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: 13px;
 }
@@ -264,6 +268,21 @@
   padding: 12px 12px 10px;
   border-bottom: 1px solid #e2e8f0;
   background: #f8fafc;
+}
+
+.schedule-table thead th:nth-child(1),
+.schedule-row td:nth-child(1) {
+  width: 44%;
+}
+
+.schedule-table thead th:nth-child(2),
+.schedule-row td:nth-child(2) {
+  width: 30%;
+}
+
+.schedule-table thead th:nth-child(3),
+.schedule-row td:nth-child(3) {
+  width: 26%;
 }
 
 .schedule-row td {
@@ -316,13 +335,14 @@
 }
 
 .schedule-datetime {
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
   color: #334155;
   font-weight: 700;
 }
 
 .schedule-condition {
-  min-width: 132px;
+  min-width: 0;
 }
 
 .schedule-status-pill {
@@ -380,9 +400,5 @@
   .schedule-row td {
     padding-left: 10px;
     padding-right: 10px;
-  }
-
-  .schedule-condition {
-    min-width: 116px;
   }
 }
