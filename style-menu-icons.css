@@ -244,6 +244,8 @@
 .schedule-table-wrap {
   width: 100%;
   display: block;
+  box-sizing: border-box;
+  align-self: stretch;
   overflow-x: auto;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
@@ -251,10 +253,22 @@
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
 }
 
+.mobile-schedule,
+.mobile-schedule-list {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.mobile-schedule-list {
+  display: block;
+}
+
 .schedule-table {
   width: 100%;
   min-width: 100%;
   table-layout: fixed;
+  display: table;
   border-collapse: collapse;
   font-size: 13px;
 }
