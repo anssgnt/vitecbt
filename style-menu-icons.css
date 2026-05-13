@@ -240,3 +240,149 @@
   background: #f59e0b;
   display: inline-block;
 }
+
+.schedule-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.schedule-table thead th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: #64748b;
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.schedule-row td {
+  padding: 12px;
+  border-bottom: 1px solid #eef2f7;
+  vertical-align: middle;
+}
+
+.schedule-row:last-child td {
+  border-bottom: none;
+}
+
+.schedule-row {
+  background: #fff;
+}
+
+.schedule-row.active {
+  background: #eff6ff;
+}
+
+.schedule-row.sync {
+  background: #f5f3ff;
+}
+
+.schedule-row.waiting {
+  background: #fff7ed;
+}
+
+.schedule-row.done {
+  background: #ecfdf5;
+}
+
+.schedule-row.expired,
+.schedule-row.locked {
+  background: #f8fafc;
+}
+
+.schedule-subject-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.schedule-subject-meta {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.schedule-datetime {
+  white-space: nowrap;
+  color: #334155;
+  font-weight: 700;
+}
+
+.schedule-condition {
+  min-width: 132px;
+}
+
+.schedule-status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.schedule-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 38px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.schedule-action-btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.schedule-empty {
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.schedule-empty-icon {
+  width: 56px;
+  height: 56px;
+}
+
+@media (max-width: 560px) {
+  .schedule-table {
+    font-size: 12px;
+  }
+
+  .schedule-table thead th,
+  .schedule-row td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .schedule-condition {
+    min-width: 116px;
+  }
+}

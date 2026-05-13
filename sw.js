@@ -1,5 +1,5 @@
 // CBT Online - single offline-first service worker
-const CACHE_VERSION = 'v11';
+const CACHE_VERSION = 'v13';
 const APP_CACHE = `cbt-app-${CACHE_VERSION}`;
 const IMAGE_CACHE = `cbt-images-${CACHE_VERSION}`;
 const API_CACHE = `cbt-api-${CACHE_VERSION}`;
@@ -43,6 +43,7 @@ const APP_SHELL = [
   '/script.min.js',
   '/admin-auth.min.js',
   '/mobile-core.min.js',
+  '/cbt-schedule-table.min.js',
   '/cbt-empty-state.min.js',
   '/mobile-sync-wrapper.min.js',
   '/exam-core.min.js',
