@@ -21,4 +21,10 @@ for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
   if (assetExt.has(ext)) copyFile(entry.name);
 }
 
+if (fs.existsSync(path.join(root, "icon-512.png"))) {
+  fs.mkdirSync(path.join(dist, "assets"), { recursive: true });
+  fs.copyFileSync(path.join(root, "icon-512.png"), path.join(dist, "assets", "icon-512.png"));
+  fs.copyFileSync(path.join(root, "icon-512.png"), path.join(dist, "favicon.ico"));
+}
+
 console.log("[build] static assets copied to dist");
