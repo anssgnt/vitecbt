@@ -23,7 +23,7 @@
   <!-- 🚀 Lazy load page-specific CSS -->
   <link rel="stylesheet" href="style-login.min.css?v=2" data-lazy-load="index" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style-dashboard.min.css?v=2" data-lazy-load="index" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="style-menu-icons.css?v=1" data-lazy-load="index" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="style-menu-icons.css?v=2" data-lazy-load="index" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style-schedule-minimal.min.css" data-lazy-load="index" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style-sync.min.css" data-lazy-load="index" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style-index-modals.min.css" data-lazy-load="index" media="print" onload="this.media='all'">
@@ -81,12 +81,12 @@
 
   <!-- CSS Dipisah untuk Optimasi -->
   <link rel="stylesheet" href="style-dashboard.min.css?v=2" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="style-menu-icons.css?v=1" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="style-menu-icons.css?v=2" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style-sync.min.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style-index-modals.min.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="style-dashboard.min.css?v=2">
-    <link rel="stylesheet" href="style-menu-icons.css?v=1">
+    <link rel="stylesheet" href="style-menu-icons.css?v=2">
     <link rel="stylesheet" href="style-sync.min.css">
     <link rel="stylesheet" href="style-index-modals.min.css">
   </noscript>
@@ -592,7 +592,15 @@
       <div class="mobile-schedule">
         <div class="mobile-schedule-header">
           <div class="mobile-schedule-title">
-            <i class="fas fa-calendar"></i>
+            <span class="schedule-title-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 3.75v3"></path>
+                <path d="M17 3.75v3"></path>
+                <path d="M5 8.5h14"></path>
+                <path d="M6.25 5.75h11.5A2.25 2.25 0 0 1 20 8v9.75A2.25 2.25 0 0 1 17.75 20H6.25A2.25 2.25 0 0 1 4 17.75V8a2.25 2.25 0 0 1 2.25-2.25Z"></path>
+                <path d="m8.75 14 2 2 4.5-5"></path>
+              </svg>
+            </span>
             Jadwal Ujian
           </div>
           <span id="schedule-count" class="mobile-schedule-count">0</span>
