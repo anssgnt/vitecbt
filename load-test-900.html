@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CBT Load Test 900 Siswa</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, sans-serif; margin: 24px; color: #0f172a; }
+    label { display: block; margin: 10px 0 4px; font-weight: 700; }
+    input { padding: 8px 10px; min-width: 220px; }
+    button { margin-top: 14px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
+    pre { margin-top: 18px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>CBT Load Test 900 Siswa</h1>
+  <p>Simulasi browser ringan untuk H-1 sync, hari-H offline cache check, dan submit bertahap 5-10 menit.</p>
+
+  <label>Jumlah siswa</label>
+  <input id="students" type="number" value="900" min="1">
+  <label>Exam ID</label>
+  <input id="examId" value="EXAM-LOADTEST">
+  <label>Durasi spread submit, menit</label>
+  <input id="spread" type="number" value="10" min="1">
+  <br>
+  <button id="run">Jalankan Simulasi</button>
+  <pre id="log">Siap.</pre>
+
+  <script src="supabase-adapter.min.js"></script>
+  <script>
+    const logEl = document.getElementById('log');
+    const log = line => { logEl.textContent += '\n' + line; };
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+    const jitter = max => Math.floor(Math.random() * max);
+    const restInsert = async (table, row, userId) => {
+      const url = `${SUPABASE_CONFIG.url}/rest/v1/${table}?on_conflict=id`;
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_CONFIG.anonKey,
+          Authorization: `Bearer ${SUPABASE_CONFIG.anonKey}`,
+          'Content-Type': 'application/json',
+          Prefer: 'resolution=merge-duplicates,return=minimal',
+          'x-cbt-user-id': userId
+        },
+        body: JSON.stringify(row)
+      });
+      return { success: response.ok, status: response.status };
+    };
+
+    document.getElementById('run').addEventListener('click', async () => {
+      const students = Number(document.getElementById('students').value || 900);
+      const examId = document.getElementById('examId').value.trim() || 'EXAM-LOADTEST';
+      const spreadMs = Number(document.getElementById('spread').value || 10) * 60 * 1000;
+      logEl.textContent = `Mulai simulasi ${students} siswa, spread submit ${Math.round(spreadMs / 60000)} menit.`;
+
+      const syncStart = performance.now();
+      const syncResults = await Promise.allSettled(Array.from({ length: students }, async (_, index) => {
+        await sleep(jitter(120000));
+        return restInsert('status_sync', {
+          id: `${examId}_SIM-${index + 1}`,
+          exam_id: examId,
+          user_id: `SIM-${index + 1}`,
+          nama: `Siswa Simulasi ${index + 1}`,
+          kelas: 'LOAD',
+          ready: true,
+          status: 'FULL',
+          time: Date.now(),
+          timestamp: Date.now(),
+          versi_download: 'loadtest',
+          versi_server: 'loadtest'
+        }, `SIM-${index + 1}`);
+      }));
+      log(`H-1 sync selesai: ${syncResults.filter(r => r.status === 'fulfilled' && r.value.success).length}/${students} sukses dalam ${Math.round((performance.now() - syncStart) / 1000)} detik.`);
+
+      const submitStart = performance.now();
+      const submitResults = await Promise.allSettled(Array.from({ length: students }, async (_, index) => {
+        await sleep(jitter(spreadMs));
+        const userId = `SIM-${index + 1}`;
+        return restInsert('hasil', {
+          id: `${examId}_${userId}`,
+          exam_id: examId,
+          user_id: userId,
+          nama: `Siswa Simulasi ${index + 1}`,
+          kelas: 'LOAD',
+          skor: Math.floor(Math.random() * 101),
+          detail: { loadtest: true },
+          waktu: 'Load Test',
+          violations: 0,
+          timestamp: Date.now()
+        }, userId);
+      }));
+      log(`Submit bertahap selesai: ${submitResults.filter(r => r.status === 'fulfilled' && r.value.success).length}/${students} sukses dalam ${Math.round((performance.now() - submitStart) / 1000)} detik.`);
+      log('Catatan: jalankan di project test, bukan database produksi.');
+    });
+  </script>
+</body>
+</html>

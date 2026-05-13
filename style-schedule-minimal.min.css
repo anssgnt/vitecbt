@@ -1,0 +1,154 @@
+/* ═══════════════════════════════════════════════════════════════
+   MINIMAL SCHEDULE LAYOUT - 2 COLUMNS COMPACT
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Grid 2 kolom */
+.mobile-schedule-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px !important;
+}
+
+/* Card lebih kecil dan compact */
+.mobile-schedule-card {
+  padding: 10px !important;
+  gap: 8px !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  min-height: 140px !important;
+  border-top: 3px solid #e2e8f0 !important;
+}
+
+/* Icon background lebih subtle */
+.mobile-schedule-card::after {
+  right: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-size: 80px !important;
+  background-position: center !important;
+  opacity: 0.04 !important;
+}
+
+/* Illustration icon lebih kecil */
+.mobile-schedule-illustration {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Details container */
+.mobile-schedule-details {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+/* Badge lebih kecil */
+.mobile-schedule-badge {
+  font-size: 7px !important;
+  padding: 2px 5px !important;
+  margin-bottom: 3px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Nama ujian lebih kecil */
+.mobile-schedule-name {
+  font-size: 12px !important;
+  margin-bottom: 2px !important;
+  line-height: 1.2 !important;
+  word-break: break-word !important;
+  font-weight: 700 !important;
+}
+
+/* Waktu lebih kecil */
+.mobile-schedule-time {
+  font-size: 9px !important;
+  margin-bottom: 4px !important;
+  gap: 2px !important;
+  color: #94a3b8 !important;
+}
+
+/* Button lebih kecil */
+.mobile-schedule-btn {
+  padding: 6px 8px !important;
+  border-radius: 6px !important;
+  font-size: 10px !important;
+  gap: 3px !important;
+  margin-top: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.mobile-schedule-btn i {
+  font-size: 10px !important;
+}
+
+/* Button view result */
+.mobile-schedule-btn.view-result {
+  margin-top: 2px !important;
+  padding: 5px 6px !important;
+  font-size: 9px !important;
+}
+
+/* State colors tetap sama */
+.mobile-schedule-card.active {
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.12) !important;
+  border-top-color: #10b981 !important;
+}
+
+.mobile-schedule-card.waiting {
+  box-shadow: 0 6px 12px rgba(245, 158, 11, 0.12) !important;
+  border-top-color: #f59e0b !important;
+}
+
+.mobile-schedule-card.sync {
+  box-shadow: 0 6px 12px rgba(99, 102, 241, 0.12) !important;
+  border-top-color: #6366f1 !important;
+}
+
+.mobile-schedule-card.done {
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.08) !important;
+  border-top-color: #10b981 !important;
+  opacity: 0.85 !important;
+}
+
+.mobile-schedule-card.expired {
+  box-shadow: 0 6px 12px rgba(148, 163, 184, 0.08) !important;
+  border-top-color: #94a3b8 !important;
+  opacity: 0.75 !important;
+}
+
+/* Left border indicator */
+.mobile-schedule-card::before {
+  width: 3px !important;
+  height: 100% !important;
+}
+
+/* Responsive - kembali ke 1 kolom di layar sangat kecil */
+@media (max-width: 380px) {
+  .mobile-schedule-list {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .mobile-schedule-card {
+    min-height: auto !important;
+  }
+}
+
+/* Responsive - tetap 2 kolom di layar medium */
+@media (min-width: 381px) and (max-width: 768px) {
+  .mobile-schedule-list {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Desktop - 3 kolom */
+@media (min-width: 769px) {
+  .mobile-schedule-list {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}

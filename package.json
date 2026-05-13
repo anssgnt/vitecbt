@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "vite build && node scripts/copy-static-assets.js",
+    "check": "node --check sw.js && node --check cbt-static-runtime.min.js && node --check cbt-performance-hardening.min.js",
+    "build:static-runtime": "esbuild src/entries/cbt-static-runtime.js --bundle --minify --format=iife --outfile=cbt-static-runtime.min.js",
+    "build:hardening": "esbuild src/entries/cbt-performance-hardening.js --bundle --minify --format=iife --outfile=cbt-performance-hardening.min.js",
+    "build:runtime": "npm run build:static-runtime && npm run build:hardening"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^5.4.2",
+    "esbuild": "^0.21.5",
+    "vite": "^5.4.11"
+  }
+}

@@ -1,0 +1,23 @@
+.fas,.fa{display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-weight:900;line-height:1}
+.fa-school:before{content:"S"}
+.fa-clock:before{content:"T"}
+.fa-download:before,.fa-cloud-download-alt:before{content:"↓"}
+.fa-sync-alt:before,.fa-redo:before{content:"↻"}
+.fa-check:before,.fa-check-circle:before{content:"✓"}
+.fa-arrow-right:before{content:"→"}
+.fa-user-tie:before,.fa-user:before{content:"U"}
+.fa-star:before{content:"★"}
+.fa-sign-out-alt:before{content:"↩"}
+.fa-search:before{content:"⌕"}
+.fa-sliders-h:before{content:"≡"}
+.fa-file-alt:before{content:"□"}
+.fa-clipboard-check:before{content:"☑"}
+.fa-life-ring:before{content:"?"}
+.fa-calendar:before,.fa-calendar-alt:before{content:"▣"}
+.fa-chart-bar:before{content:"▥"}
+.fa-book-open:before{content:"B"}
+.fa-sign-in-alt:before{content:"→"}
+.fa-key:before{content:"K"}
+.fa-edit:before{content:"✎"}
+.fa-spin{animation:faSpin 1s linear infinite}
+@keyframes faSpin{to{transform:rotate(360deg)}}
