@@ -231,44 +231,30 @@
     .mobile-clock-box {
       display: flex;
       align-items: center;
-      gap: 10px;
       background: #f0f1ff;
       border: 1px solid rgba(99, 102, 241, 0.15);
-      border-radius: 14px;
+      border-radius: 13px;
       padding: 10px 14px;
       flex-shrink: 0;
+      min-width: 92px;
+      justify-content: center;
     }
 
     .mobile-clock-icon {
-      width: 34px;
-      height: 34px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 16px;
-      flex-shrink: 0;
+      display: none;
     }
 
     .mobile-clock-label {
-      font-size: 9px;
-      font-weight: 800;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      line-height: 1;
-      margin-bottom: 2px;
+      display: none;
     }
 
     .mobile-header-clock {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
       color: var(--primary-dark);
       font-variant-numeric: tabular-nums;
       line-height: 1;
-      letter-spacing: -0.5px;
+      letter-spacing: 0;
     }
 
     /* Divider dalam card */
@@ -418,11 +404,7 @@
             </div>
           </div>
           <div class="mobile-clock-box">
-            <div class="mobile-clock-icon"><i class="fas fa-clock"></i></div>
-            <div>
-              <div class="mobile-clock-label">WAKTU</div>
-              <div id="mobile-header-clock" class="mobile-header-clock">--:--</div>
-            </div>
+            <div id="mobile-header-clock" class="mobile-header-clock">--:--</div>
           </div>
         </div>
 
@@ -435,7 +417,7 @@
             <span id="mobile-status-dot" class="mobile-status-dot"></span>
             <div>
               <div class="mobile-status-label">STATUS LOGIN</div>
-              <div id="mobile-status-user" class="mobile-status-user-placeholder skeleton-text">&nbsp;</div>
+              <div id="mobile-status-user" class="mobile-status-user-placeholder">Belum login</div>
             </div>
           </div>
           <div class="mobile-status-divider"></div>
