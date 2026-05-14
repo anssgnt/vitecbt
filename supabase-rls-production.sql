@@ -20,6 +20,7 @@ alter table public.online_status enable row level security;
 alter table public.reset_flags enable row level security;
 alter table public.broadcasts enable row level security;
 alter table public.status_sync enable row level security;
+alter table public.pelanggaran enable row level security;
 
 create or replace function public.cbt_request_user_id()
 returns text

@@ -1,5 +1,5 @@
 // CBT Online - single offline-first service worker
-const CACHE_VERSION = 'v27';
+const CACHE_VERSION = 'v28';
 const APP_CACHE = `cbt-app-${CACHE_VERSION}`;
 const IMAGE_CACHE = `cbt-images-${CACHE_VERSION}`;
 const API_CACHE = `cbt-api-${CACHE_VERSION}`;
@@ -57,7 +57,8 @@ const APP_SHELL = [
   '/exam-advanced-integration.min.js',
   '/result-core.min.js',
   '/cbt-static-runtime.min.js',
-  '/cbt-performance-hardening.min.js'
+  '/cbt-performance-hardening.min.js',
+  '/cbt-admin-signals.min.js'
 ];
 
 const isImageUrl = url => /\.(jpe?g|png|gif|webp|svg)$/i.test(url.pathname);
