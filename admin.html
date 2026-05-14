@@ -321,7 +321,7 @@
             <button class="btn btn-outline" onclick="currentImportType='siswa'; downloadTemplateExcel()">Template</button>
             <div style="flex:1;min-width:200px;"></div>
             <select id="filter-kelas-delete" class="form-control" style="width:160px;">
-              <option value="">-- Pilih Kelas --</option>
+              <option value="">Semua Kelas</option>
             </select>
             <button class="btn btn-outline" style="color:#DC2626;border-color:#FECACA;" onclick="deleteSiswaPerKelas()">🗑️ Hapus Kelas</button>
             <button class="btn btn-outline" style="color:#DC2626;border-color:#FECACA;" onclick="deleteSiswaSemuanya()">🗑️ Hapus Semua</button>
@@ -778,12 +778,12 @@
   <script defer src="admin-shared.min.js?v=1"></script>
   <script defer src="cbt-static-runtime.min.js?v=2"></script>
   <script defer src="cbt-performance-hardening.min.js?v=2"></script>
-  <script defer src="cbt-admin-signals.min.js?v=4"></script>
+  <script defer src="cbt-admin-signals.min.js?v=5"></script>
   <script defer src="admin-core.min.js?v=2"></script>
   <script defer src="admin-ops-enhancements.min.js?v=4"></script>
   
   <!-- ✅ Admin Siswa Delete Functions -->
-  <script defer src="admin-siswa-delete.min.js?v=2"></script>
+  <script defer src="admin-siswa-delete.min.js?v=3"></script>
 
   <!-- ✅ Phase 2.2: Lazy load admin-import.js and admin-analytics.js on tab click -->
   <script>
