@@ -14,6 +14,7 @@ export default defineConfig({
         exam: "exam.html",
         admin: "admin.html",
         result: "result.html",
+        "soal-editor": "soal-editor.html",
       },
     },
   },
