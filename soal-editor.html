@@ -13,6 +13,12 @@
 <script defer src="supabase-adapter.min.js?v=2"></script>
 <script defer src="supabase-patch.min.js?v=8"></script>
 <script defer src="script.min.js?v=10"></script>
+  <!-- Math & Arabic Support -->
+  <link rel="stylesheet" href="style-math-arab.min.css?v=1">
+  <!-- KaTeX for Math -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+  <!-- Arabic Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -607,5 +613,15 @@ window.addEventListener('beforeunload',e=>{ if(ES.isDirty){e.preventDefault();e.
       });
     }
   </script>
+  <!-- Math, Arabic & Excel Import Handlers -->
+  <script src="src/math-handler.js?v=1"></script>
+  <script src="src/arabic-handler.js?v=1"></script>
+  <script src="src/excel-importer.js?v=1"></script>
+  <!-- KaTeX Auto-render -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+  <!-- XLSX for Excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
 </body>
 </html>
+
+

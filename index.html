@@ -17,6 +17,13 @@
   <link rel="stylesheet" href="cbt-lite-icons.min.css?v=1">
   <!-- ✅ OPTIMIZATION: Split CSS - Load core only, lazy load page-specific -->
   <link rel="stylesheet" href="style-core.min.css?v=2">
+  <!-- Math & Arabic Support -->
+  <link rel="stylesheet" href="style-math-arab.min.css?v=1">
+  <!-- KaTeX for Math -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+  <!-- Arabic Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style-login-lite.min.css?v=1">
   <link rel="stylesheet" href="style-modals.min.css?v=2" media="(max-width: 0px)">
   
@@ -759,5 +766,15 @@
     })();
 
   </script>
+  <!-- Math, Arabic & Excel Import Handlers -->
+  <script src="src/math-handler.js?v=1"></script>
+  <script src="src/arabic-handler.js?v=1"></script>
+  <script src="src/excel-importer.js?v=1"></script>
+  <!-- KaTeX Auto-render -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+  <!-- XLSX for Excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
 </body>
 </html>
+
+

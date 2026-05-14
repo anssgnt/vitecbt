@@ -1,0 +1,13 @@
+@echo off
+cd C:\laragon\www\examkita
+echo Removing lock files...
+del /F /Q .git\index.lock 2>nul
+timeout /t 2
+echo Adding files...
+git add .
+echo Committing...
+git commit -m "feat: Add Phase 2 Phase 3 - Matematika Arab Excel Import"
+echo Pushing to GitHub...
+git push origin main
+echo Done!
+pause
