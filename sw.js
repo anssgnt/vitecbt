@@ -1,5 +1,5 @@
 // CBT Online - single offline-first service worker
-const CACHE_VERSION = 'v31';
+const CACHE_VERSION = 'v32';
 const APP_CACHE = `cbt-app-${CACHE_VERSION}`;
 const IMAGE_CACHE = `cbt-images-${CACHE_VERSION}`;
 const API_CACHE = `cbt-api-${CACHE_VERSION}`;
