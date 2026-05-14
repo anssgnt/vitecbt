@@ -1,5 +1,5 @@
 // CBT Online - single offline-first service worker
-const CACHE_VERSION = 'v31';
+const CACHE_VERSION = 'v32';
 const APP_CACHE = `cbt-app-${CACHE_VERSION}`;
 const IMAGE_CACHE = `cbt-images-${CACHE_VERSION}`;
 const API_CACHE = `cbt-api-${CACHE_VERSION}`;
@@ -32,10 +32,6 @@ const APP_SHELL = [
   '/bandwidth-optimizer.min.js',
   '/css-lazy-loader.min.js',
   '/image-optimizer.min.js',
-  '/parallel-batch-optimizer.min.js',
-  '/instant-login.min.js',
-  '/lazy-render-questions.min.js',
-  '/optimized-answer-sync.min.js',
   '/supabase-adapter.min.js',
   '/firebase-mock.min.js',
   '/supabase-patch.min.js',
@@ -44,17 +40,7 @@ const APP_SHELL = [
   '/mobile-core.min.js',
   '/cbt-schedule-table.min.js',
   '/cbt-empty-state.min.js',
-  '/mobile-sync-wrapper.min.js',
   '/exam-core.min.js',
-  '/queue-system.min.js',
-  '/pwa-core.min.js',
-  '/pwa-inline.js',
-  '/lazy-loading-core.min.js',
-  '/sw-image-cache.min.js',
-  '/predictive-cache.min.js',
-  '/differential-sync.min.js',
-  '/data-compression.min.js',
-  '/exam-advanced-integration.min.js',
   '/result-core.min.js',
   '/cbt-static-runtime.min.js',
   '/cbt-performance-hardening.min.js',

@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="style-exam-footer.min.css?v=1" data-lazy-load="exam" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style-exam.min.css?v=1" data-lazy-load="exam" media="print" onload="this.media='all'">
 
+  <style>
+    #global-net-spinner { display: none !important; }
+  </style>
 </head>
 
 <body oncontextmenu="return false;" class="exam-page">
@@ -177,20 +180,6 @@
   <!-- CRITICAL SCRIPTS (load immediately) -->
   <!-- ============================================ -->
   
-  <!-- 🚨 RATE LIMITER - Load first untuk prevent 900 siswa overload -->
-  <script src="rate-limiter.min.js?v=1" defer></script>
-  
-  <!-- ⚡ SPEED OPTIMIZATION - Parallel batch + instant login + lazy render -->
-  <script src="parallel-batch-optimizer.min.js?v=1" defer></script>
-  <script src="instant-login.min.js?v=1" defer></script>
-  <script src="lazy-render-questions.min.js?v=1" defer></script>
-  <script src="optimized-answer-sync.min.js?v=1" defer></script>
-  
-  <script src="sync-optimizer.min.js?v=1" defer></script>
-  <script src="bandwidth-optimizer.min.js?v=1" defer></script>
-  <script src="css-lazy-loader.min.js?v=1" defer></script>
-  <script src="image-optimizer.min.js?v=1" defer></script>
-  
   <script src="supabase-adapter.min.js?v=2" defer></script>
   <!-- ✅ Firebase mock (MUST load before supabase-patch.js) -->
   <script src="firebase-mock.min.js" defer></script>
@@ -201,7 +190,6 @@
   <script src="cbt-performance-hardening.min.js?v=2" defer></script>
   <script src="cbt-admin-signals.min.js?v=1" defer></script>
   <script src="exam-core.min.js?v=4" defer></script>
-  <script src="mobile-sync-wrapper.min.js?v=1" defer></script>
 
   <!-- ============================================ -->
   <!-- BUGFIX: ENHANCED ANTI-CHEAT OVERRIDE -->
