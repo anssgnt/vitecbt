@@ -888,6 +888,39 @@
       }, 1000);
     });
 
+    // [PRODUCTION] Start exam instantly (offline-first). Presence sync runs in background.
+    (function() {
+      function bindInstantStartExam() {
+        const oldBtn = document.getElementById('btnStartExam');
+        if (!oldBtn || oldBtn.dataset.instantBound === '1') return;
+        const newBtn = oldBtn.cloneNode(true);
+        oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+        newBtn.dataset.instantBound = '1';
+        newBtn.addEventListener('click', () => {
+          try {
+            if (!window.State || !State.config || !State.user) return;
+            State.examActive = true;
+            State.submissionLocked = false;
+            State.pingOffset = Math.floor(Math.random() * 600);
+            const session = { user: State.user, config: { ...State.config, keys: State.config.keys || {} } };
+            localStorage.setItem('CBT_EXAM_SESSION', JSON.stringify(session));
+            if (typeof window.saveStateLocal === 'function') window.saveStateLocal();
+            try {
+              if (typeof window.gasRun === 'function') {
+                window.gasRun('setStudentOnline', State.config.id_ujian, State.user.id).catch(() => {});
+              }
+            } catch (_) {}
+            window.location.href = 'exam.html';
+          } catch (_) {}
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindInstantStartExam);
+      } else {
+        bindInstantStartExam();
+      }
+    })();
+
   </script>
 </body>
 </html>
